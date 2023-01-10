@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+:root {
+
+    /* Color Tokens */
+    --bgBasePrimary: radial-gradient(50% 50% at 50% 50%, #1A1C2C 0%, #0D0D16 100%);
+    --bgPrimary: #0E0E17;
+
+    --labelPrimary: #fff;
+    --labelSecondary: #A0A0C5;
+    --labelError: linear-gradient(180deg, #E47CB4 0%, #CF3A8B 100%);
+    --labelPositive: linear-gradient(180deg, #419188 0%, #0FD2EC 100%);
+
+    --borderBase: #292C48;
+    --borderPrimary: #1F202B;
+    --borderSecondary: #5B608A;
+    --borderAccent: #8FCFF8;
+
+    /* Typography Tokens */
+    --ff-heading: 'SF Mono';
+    --ff-body: 'Inter';
+
+    --fs-heading: 14px;
+    --fs-body: 14px;
+    --fs-bodyMini: 12px;
+    --fs-button: 14px;
+
+    --fw-semibold: 600;
+    --fw-regular: 400;
+
+    --lh-regular: 160%;
+    --ls-body: 1%;
+    --ls-body-mini: 6%;
+
+    /* Box shadow Tokens */
+    --sw-active: 1px 1px 40px 6px rgba(143, 207, 248, 0.29);
+
+    /* Border Radius Tokens */
+    --br-md: 6px;
+    
+}
+
+body {
+    background: var(--bgBasePrimary);
+    font-family: var(--ff-body, sans-serif);
+    color: var(--labelSecondary);
+    font-size: var(--fs-body);
+    letter-spacing: var(--ls-body);
+}
+
+.heading {
+    font-family: var(--ff-heading);
+    font-weight: var(--fw-semibold);
+    font-size: var(--fs-heading);
+    color: var(--labelPrimary);
+}
