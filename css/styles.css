@@ -5,16 +5,17 @@
     /* Color Tokens */
     --bgBasePrimary: radial-gradient(50% 50% at 50% 50%, #1A1C2C 0%, #0D0D16 100%);
     --bgPrimary: #0E0E17;
+    --bgSecondary: rgba(255, 255, 255, 0.2);
 
     --labelPrimary: #fff;
     --labelSecondary: #A0A0C5;
     --labelError: linear-gradient(180deg, #E47CB4 0%, #CF3A8B 100%);
     --labelPositive: linear-gradient(180deg, #419188 0%, #0FD2EC 100%);
 
-    --borderBase: #292C48;
-    --borderPrimary: #1F202B;
-    --borderSecondary: #5B608A;
-    --borderAccent: #8FCFF8;
+    --borderBase: 1px solid #292C48;
+    --borderPrimary: 1px solid #1F202B;
+    --borderSecondary: 1px solid #5B608A;
+    --borderAccent: 1px solid #8FCFF8;
 
     /* Typography Tokens */
     --ff-heading: 'SF Mono';
@@ -37,7 +38,7 @@
 
     /* Border Radius Tokens */
     --br-md: 6px;
-    
+
 }
 
 body {
@@ -53,4 +54,31 @@ body {
     font-weight: var(--fw-semibold);
     font-size: var(--fs-heading);
     color: var(--labelPrimary);
+}
+
+.spacer>*+* {
+    margin-bottom: 1rem;
+}
+
+.btn {
+    display: flex;
+    grid-auto-columns: auto;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    font-family: var(--ff-heading);
+    font-size: var(--fs-button);
+    font-weight: var(--fw-semibold);
+    border: var(--borderPrimary);
+    border-radius: var(--br-md);
+    background-color: var(--bgPrimary);
+    background: var(--labelError);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: .2s ease;
+}
+
+.btn:hover {
+    border: var(--borderSecondary);
 }
