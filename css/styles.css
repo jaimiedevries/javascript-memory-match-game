@@ -1,29 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap');
 
 :root {
 
     /* Color Tokens */
     --bgBasePrimary: radial-gradient(50% 50% at 50% 50%, #1A1C2C 0%, #0D0D16 100%);
     --bgPrimary: #0E0E17;
-    --bgSecondary: rgba(255, 255, 255, 0.2);
+    --bgSecondary: rgba(255, 255, 255, 0.02);
 
     --labelPrimary: #DFDFEC;
     --labelSecondary: #A0A0C5;
     --labelError: linear-gradient(180deg, #E47CB4 0%, #CF3A8B 100%);
     --labelPositive: linear-gradient(180deg, #419188 0%, #0FD2EC 100%);
 
-    --borderBase: 1px solid #292C48;
+    --borderBase: solid #292C48;
     --borderPrimary: 1px solid #1F202B;
     --borderSecondary: 1px solid #5B608A;
     --borderAccent: 1px solid #8FCFF8;
 
     /* Typography Tokens */
-    --ff-heading: 'SF Mono';
-    --ff-body: 'Inter';
+    --ff-heading: 'Fira Code', monospace;
+    --ff-body: 'Inter', sans-serif;
 
-    --fs-heading: 14px;
+    --fs-heading: 16px;
     --fs-body: 14px;
-    --fs-bodyMini: 12px;
+    --fs-bodyMini: 14px;
     --fs-button: 14px;
 
     --fw-semibold: 600;
@@ -31,7 +32,7 @@
 
     --lh-regular: 160%;
     --ls-body: 1%;
-    --ls-body-mini: 6%;
+    --ls-body-mini: 12%;
 
     /* Box shadow Tokens */
     --sw-active: 1px 1px 40px 2px rgba(143, 207, 248, 0.29);
@@ -47,18 +48,68 @@ body {
     color: var(--labelSecondary);
     font-size: var(--fs-body);
     letter-spacing: var(--ls-body);
+    line-height: var(--lh-regular);
     user-select: none;
 }
 
+.row {
+    display: flex;
+    gap: 1.5rem;
+}
+
+p {
+    max-width: 70ch;
+}
+
+hr.solid {
+    border: var(--borderBase);
+    border-width: 1px 0 0 0;
+}
+
 .heading {
+    display: flex;
+    gap: 8px;
     font-family: var(--ff-heading);
     font-weight: var(--fw-semibold);
     font-size: var(--fs-heading);
     color: var(--labelPrimary);
 }
 
-.spacer>*+* {
-    margin-bottom: 1rem;
+.container {
+    width: min(100% - 2rem, 72rem);
+    margin-inline: auto;
+}
+
+.text-gradient-error {
+    background: var(--labelError);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-positive {
+    background: var(--labelPositive);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.label {
+    font-family: var(--ff-heading);
+    font-size: var(--fs-bodyMini);
+    text-transform: uppercase;
+    letter-spacing: var(--ls-body-mini);
+}
+
+.value {
+    font-family: var(--ff-heading);
+    font-size: var(--fs-body);
+}
+
+
+
+.flow>*+* {
+    margin-top: var(--spacer, 24px);
 }
 
 .btn {
@@ -72,15 +123,77 @@ body {
     font-size: var(--fs-button);
     font-weight: var(--fw-semibold);
     border-radius: var(--br-md);
-    background-color: var(--bgPrimary);
-    background: var(--labelError);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    border: var(--borderPrimary);
+    background-color: transparent;
+    border: 1px var(--borderBase);
     transition: .2s ease;
 }
 
 .btn:hover {
     border: var(--borderSecondary);
+    background-color: var(--bgSecondary);
+}
+
+
+
+
+
+.game-container {
+    display: grid;
+    padding: 24px 0 24px 0;
+    gap: 32px;
+}
+
+.game-intro {
+    --spacer: 12px;
+}
+
+
+
+.game-container__card-grid {
+    display: grid;
+    gap: 8px;
+    grid-template-columns: repeat(4, minmax(auto, 1fr));
+    grid-template-rows: repeat(4, minmax(120px, 1fr));
+}
+
+.grid-item {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    font-size: 1.5rem;
+    background: hsla(0, 0%, 100%, 0.05);
+    border-radius: var(--br-md);
+    transition: .2s ease;
+    border: 1px solid transparent;
+}
+
+@media(min-width: 50em) {
+
+    main {
+        display: grid;
+        height: 100%;
+        justify-content: center;
+        align-content: center;
+    }
+
+    .game-container {
+        grid-template-columns: minmax(auto, max-content) 1fr;
+        padding: 0;
+    }
+
+    .game-container__details {
+        max-width: 400px;
+    }
+
+    .game-container__card-grid {
+        grid-template-columns: repeat(4, minmax(auto, 120px));
+        grid-template-rows: repeat(4, minmax(120px, 1fr));
+        padding-left: 32px;
+    }
+
+    .grid-item:hover {
+        border: var(--borderAccent);
+        box-shadow: var(--sw-active);
+    }
+
 }

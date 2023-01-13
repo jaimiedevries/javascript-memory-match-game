@@ -10,9 +10,64 @@
     <script src="/js/app.js"></script>
   </head>
   <body>
-    <p class="heading">JavaScript Memory Matching Game</p>
-    <button class="btn">
-      <img src="/src/icons/reset.svg" alt="" />Restart Game
-    </button>
+    <main>
+      <section class="container">
+        <div class="game-container">
+          <div class="game-container__details flow">
+            <div class="game-intro flow">
+              <p class="heading">
+                <img src="/src/icons/pokeballGradient.svg" />
+                Pokémon Memory Matching Game
+              </p>
+              <p>
+                Welcome to the Pokémon Memory Game! In this game, you will be
+                presented with a grid of cards featuring different Pokémon
+                characters. Your goal is to find pairs of matching cards by
+                flipping them over.
+              </p>
+            </div>
+            <hr class="solid" />
+            <div class="game-data row">
+              <dl>
+                <dt class="label">⚉ DURATION</dt>
+                <dd class="value text-gradient-positive">00:12</dd>
+              </dl>
+              <dl>
+                <dt class="label">⤶ TURNS</dt>
+                <dd class="value text-gradient-positive">2</dd>
+              </dl>
+              <dl class="label">
+                <dt>✓ COMPLETED</dt>
+                <dd class="value text-gradient-positive">2</dd>
+              </dl>
+            </div>
+            <hr class="solid" />
+            <button class="btn">
+              <img src="/src/icons/reset.svg" alt="" />
+              <span class="text-gradient-error">Restart Game</span>
+            </button>
+          </div>
+
+          <div class="game-container__card-grid">
+            <div class="grid-item">✨</div>
+            <div class="grid-item">✨</div>
+            <div class="grid-item">✨</div>
+            <div class="grid-item">✨</div>
+            <div class="grid-item">✨</div>
+            <div class="grid-item">✨</div>
+            <div class="grid-item">✨</div>
+            <div class="grid-item">✨</div>
+            <div class="grid-item">✨</div>
+            <div class="grid-item">✨</div>
+            <div class="grid-item">✨</div>
+            <div class="grid-item">✨</div>
+            <div class="grid-item">✨</div>
+            <div class="grid-item">✨</div>
+            <div class="grid-item">✨</div>
+            <div class="grid-item">✨</div>
+          </div>
+        </div>
+      </section>
+    </main>
   </body>
 </html>
