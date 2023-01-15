@@ -42,6 +42,9 @@
 
 }
 
+
+/* ------------ General Styling and Utilities ------------ */
+
 body {
     background: var(--bgBasePrimary);
     font-family: var(--ff-body, sans-serif);
@@ -106,8 +109,6 @@ hr.solid {
     font-size: var(--fs-body);
 }
 
-
-
 .flow>*+* {
     margin-top: var(--spacer, 24px);
 }
@@ -134,8 +135,7 @@ hr.solid {
 }
 
 
-
-
+/* ------------ Layout ------------ */
 
 .game-container {
     display: grid;
@@ -147,24 +147,49 @@ hr.solid {
     --spacer: 12px;
 }
 
-
-
-.game-container__card-grid {
+#card-grid {
     display: grid;
     gap: 8px;
-    grid-template-columns: repeat(4, minmax(auto, 1fr));
+    grid-template-columns: repeat(4, minmax(min-content, 1fr));
     grid-template-rows: repeat(4, minmax(120px, 1fr));
 }
 
 .grid-item {
     display: grid;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
     justify-content: center;
     align-content: center;
-    font-size: 1.5rem;
     background: hsla(0, 0%, 100%, 0.05);
     border-radius: var(--br-md);
     transition: .2s ease;
     border: 1px solid transparent;
+    transform-style: preserve-3d;
+}
+
+.front,
+.back {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    backface-visibility: hidden;
+    transition: transform 0.5s;
+}
+
+.front {
+    background-image: url('/src/img/img.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #000;
+}
+
+.rotated {
+    transform: rotateY(180deg);
 }
 
 @media(min-width: 50em) {
@@ -185,8 +210,8 @@ hr.solid {
         max-width: 400px;
     }
 
-    .game-container__card-grid {
-        grid-template-columns: repeat(4, minmax(auto, 120px));
+    #card-grid {
+        grid-template-columns: repeat(4, minmax(120px, 120px));
         grid-template-rows: repeat(4, minmax(120px, 1fr));
         padding-left: 32px;
     }
