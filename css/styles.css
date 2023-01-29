@@ -189,6 +189,13 @@ hr.solid {
     background-color: #000;
 }
 
+.front__inner-border {
+    position: absolute;
+    z-index: 1;
+    top: auto;
+    left: auto;
+}
+
 .rotated {
     transform: rotateY(180deg);
 }
